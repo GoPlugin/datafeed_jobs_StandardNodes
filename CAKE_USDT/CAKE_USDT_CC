@@ -1,0 +1,28 @@
+type = "fluxmonitor"
+schemaVersion = 1
+name = "CAKE/USDT Flux Poll Timer + Idle Timer"
+forwardingAllowed = false
+maxTaskDuration = "30s"
+absoluteThreshold = 0
+contractAddress = ""
+drumbeatEnabled = false
+evmChainID = "50"
+idleTimerPeriod = "30m0s"
+idleTimerDisabled = false
+pollTimerPeriod = "15m0s"
+pollTimerDisabled = false
+threshold = 0.20000000298023224
+observationSource = """
+
+    // data source 1
+	
+    ds1 [type="http" method=GET url="https://min-api.cryptocompare.com/data/price?fsym=CAKE&tsyms=USDT"]
+    ds1_parse [type="jsonparse" path="USDT"]
+    ds1_multiply     [type="multiply" input="$(ds1_parse)" times=10000000000000000]
+
+
+	ds1 -> ds1_parse -> ds1_multiply -> medianized_answer
+  
+  
+    medianized_answer [type=mean]
+"""
