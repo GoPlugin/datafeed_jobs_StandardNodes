@@ -1,0 +1,29 @@
+type = "fluxmonitor"
+schemaVersion = 1
+name = "OP/USDT Flux Poll Timer + Idle Timer"
+forwardingAllowed = false
+maxTaskDuration = "30s"
+absoluteThreshold = 0
+contractAddress = "0x107967aB7227bCf25A857E5B197E8a18f1432B55"
+drumbeatEnabled = false
+evmChainID = "50"
+idleTimerPeriod = "30m0s"
+idleTimerDisabled = false
+pollTimerPeriod = "15m0s"
+pollTimerDisabled = false
+threshold = 0.33
+observationSource = """
+   
+
+    ds1 [type=http method=GET url="https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?symbolOP&convert=USDT" allowUnrestrictedNetworkAccess="true" headers="[\\"X-CMC_PRO_API_KEY\\", \\"<CMC-API-KEY>\\"]"]
+    ds1_parse [type="jsonparse" path="data,OP,0,quote,USDT,price"]
+    ds1_multiply     [type="multiply" input="$(ds1_parse)" times=10000000000000000]
+
+
+    ds1 -> ds1_parse -> ds1_multiply -> medianized_answer
+
+
+
+
+    medianized_answer [type=mean]
+"""

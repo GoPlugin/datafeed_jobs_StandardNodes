@@ -4,14 +4,14 @@ name = "NEAR/USDT Flux Poll Timer + Idle Timer"
 forwardingAllowed = false
 maxTaskDuration = "30s"
 absoluteThreshold = 0
-contractAddress = "0x0b41e008E66c98788a25c952ff1a8c0cb2290f8C"
+contractAddress = "0xFf437e216E3256d10500fc155210FA3004aF5b6B"
 drumbeatEnabled = false
 evmChainID = "50"
 idleTimerPeriod = "30m0s"
 idleTimerDisabled = false
 pollTimerPeriod = "15m0s"
 pollTimerDisabled = false
-threshold = 0.20000000298023224
+threshold = 0.67
 observationSource = """
    
 

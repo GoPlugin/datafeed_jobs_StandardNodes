@@ -4,14 +4,14 @@ name = "ATOM/USDT Flux Poll Timer + Idle Timer"
 forwardingAllowed = false
 maxTaskDuration = "30s"
 absoluteThreshold = 0
-contractAddress = ""
+contractAddress = "0x8cc9f88718873792961740F981E13F2C3E070fDA"
 drumbeatEnabled = false
 evmChainID = "50"
 idleTimerPeriod = "30m0s"
 idleTimerDisabled = false
 pollTimerPeriod = "15m0s"
 pollTimerDisabled = false
-threshold = 0.20000000298023224
+threshold = 0.44
 observationSource = """
 
     // data source 1
