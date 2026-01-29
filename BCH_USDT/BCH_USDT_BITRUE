@@ -1,0 +1,28 @@
+type = "fluxmonitor"
+schemaVersion = 1
+name = "BCH/USDT Flux Poll Timer + Idle Timer"
+forwardingAllowed = false
+maxTaskDuration = "30s"
+absoluteThreshold = 0
+contractAddress = "0x4Ebf7E820788CE77E0D31c2AB7A9896184c5f050"
+drumbeatEnabled = false
+evmChainID = "50"
+idleTimerPeriod = "30m0s"
+idleTimerDisabled = false
+pollTimerPeriod = "15m0s"
+pollTimerDisabled = false
+threshold = 0.01
+observationSource = """
+
+    // data source 1
+	
+    ds1 [type="http" method=GET url="https://openapi.bitrue.com/api/v1/ticker/price?symbol=BCHUSDT"]
+    ds1_parse [type="jsonparse" path="price"]
+    ds1_multiply     [type="multiply" input="$(ds1_parse)" times=10000000000000000]
+
+
+	ds1 -> ds1_parse -> ds1_multiply -> medianized_answer
+  
+  
+    medianized_answer [type=mean]
+"""
