@@ -50,11 +50,7 @@ Keep a track of the node logs and the working of the Job thoroughly, both on the
 
 ## Steps to confirm the successfull execution of the jobs.
 
-* Once you see a run on the job you have added, open the run and take the screenshot as shown below.
-
-* Reply to our email with the screenshot showing the successful job run.
-
-* Please note that the IP address and the Job must be visible in the screenshot.
+* Once you see a run on the job you have added, open the run and verify the execution as shown in the image below.
 
 
   <img width="1280" height="622" alt="job_run img" src="https://github.com/user-attachments/assets/a1cfd4c4-ac76-46eb-97dd-3f832d3c92c5" />
