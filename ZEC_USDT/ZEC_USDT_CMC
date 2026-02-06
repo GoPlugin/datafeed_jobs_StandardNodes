@@ -15,7 +15,7 @@ threshold = 0.25
 observationSource = """
    
 
-    ds1 [type=http method=GET url="https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?ZEC&convert=USDT" allowUnrestrictedNetworkAccess="true" headers="[\\"X-CMC_PRO_API_KEY\\", \\"<CMC-API-KEY>\\"]"]
+    ds1 [type=http method=GET url="https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest?symbol=ZEC&convert=USDT" allowUnrestrictedNetworkAccess="true" headers="[\\"X-CMC_PRO_API_KEY\\", \\"<CMC-API-KEY>\\"]"]
     ds1_parse [type="jsonparse" path="data,ZEC,0,quote,USDT,price"]
     ds1_multiply     [type="multiply" input="$(ds1_parse)" times=10000000000000000]
 
