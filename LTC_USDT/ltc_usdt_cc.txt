@@ -15,13 +15,12 @@ threshold = 0.15
 observationSource = """
 
     // data source 1
-	
+
     ds1 [type="http" method=GET url="https://min-api.cryptocompare.com/data/price?fsym=LTC&tsyms=USDT"]
     ds1_parse [type="jsonparse" path="USDT"]
     ds1_multiply     [type="multiply" input="$(ds1_parse)" times=10000000000000000]
 
-
-	ds1 -> ds1_parse -> ds1_multiply -> medianized_answer
+    ds1 -> ds1_parse -> ds1_multiply -> medianized_answer
   
   
     medianized_answer [type=mean]
