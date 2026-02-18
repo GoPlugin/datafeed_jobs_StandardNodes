@@ -11,7 +11,7 @@ idleTimerPeriod = "30m0s"
 idleTimerDisabled = false
 pollTimerPeriod = "15m0s"
 pollTimerDisabled = false
-threshold = 0.05
+threshold = 3.0
 observationSource = """
    
 
